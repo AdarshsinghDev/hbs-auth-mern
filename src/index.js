@@ -12,7 +12,6 @@ const app = express();
 const PORT = process.env.PORT || 8000;
 
 const static_path = path.join(__dirname, "public");
-app.use(express.static(static_path));
 
 app.use(express.json());
 app.use(express.static(static_path));
@@ -35,8 +34,8 @@ app.post("/login", async (req, res) => {
         const correctUser = await Signup.findOne({ loginEmail });
         const correctPassword = await Signup.findOne({ loginPassword });
 
-        if (user) {
-    if (user.loginPassword === loginPassword) {
+        if (correctUser) {
+    if (correctUser.loginPassword === loginPassword) {
         res.render("index");
         console.log(`Successful Login!`);
     } else {
