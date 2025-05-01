@@ -18,6 +18,7 @@ app.use(express.json());
 app.use(express.static(static_path));
 app.use(express.urlencoded({ extended: true }));
 app.set("view engine", "hbs");
+app.set("views", path.join(__dirname, "views"));
 
 
 app.get('/', (req, res) => {
@@ -34,18 +35,16 @@ app.post("/login", async (req, res) => {
         const correctUser = await Signup.findOne({ loginEmail });
         const correctPassword = await Signup.findOne({ loginPassword });
 
-        if (correctUser) {
-            if (correctPassword) {
-                res.render("index");
-                console.log(`Sucessful Login!`);
-            } else {
-                res.send(`Wrong Password!`);
-                console.log(`Wrong Password!`);
-            }
-        } else {
-            res.send("Incorrect username");
-            console.log("Incorrect username");
-        }
+        if (user) {
+    if (user.loginPassword === loginPassword) {
+        res.render("index");
+        console.log(`Successful Login!`);
+    } else {
+        res.send("Wrong Password!");
+    }
+} else {
+    res.send("Incorrect Email");
+}
     } catch (error) {
         console.log(`Error`)
     }
