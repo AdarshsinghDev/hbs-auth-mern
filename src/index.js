@@ -11,7 +11,8 @@ const __dirname = path.dirname(__filename);
 const app = express();
 const PORT = process.env.PORT || 8000;
 
-const static_path = path.join(__dirname);
+const static_path = path.join(__dirname, "public");
+app.use(express.static(static_path));
 
 app.use(express.json());
 app.use(express.static(static_path));
