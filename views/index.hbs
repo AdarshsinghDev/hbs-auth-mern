@@ -1,0 +1,915 @@
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+
+      /* - -*-~*~-*-*-~*~-*-*-~*~* | ●▬▬▬▬▬▬▬๑۩۩๑▬▬▬▬▬▬▬● Made by ~ Areal Alien
+      ❥ 雷克斯 ●▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬● ──────▄▀▄─────▄▀▄ ─────▄█░░▀▀▀▀▀░░█▄
+      ─▄▄──█░░░░░░░░░░░█──▄▄ █▄▄█─█░░▀░░┬░░▀░░█─█▄▄█ -*-~*~-*-*-~*~-*-*-~*~* | -
+      */ :root { --bc: #0c0c0d; --bc-gray: #0e0d10; --bc-purple: #281e31;
+      --bc-purple-darker: #1d1823; --bc-nav-foot: #141017; --white: #ffffff;
+      --black: #000000; --dark-blue: #1f2029; --extra-dark-blue: #13141a;
+      --dark-light: #424455; --red: #da2c4d; --dark-red: #6e1727; --yellow:
+      #f8ab37; --grey: #ecedf3; --blue: #007bff; --indigo: #6610f2; --purple:
+      #6f42c1; --pink: #e83e8c; --orange: #fd7e14; --green: #28a745;
+      --light-green: #24e33a; --teal: #20c997; --cyan: #17a2b8; --gray: #6c757d;
+      --gray-darker: rgb(109, 109, 109); --gray-light: rgb(129, 129, 129);
+      --gray-extra-dark: #343a40; --primary: #4b0082; --secondary: #7015b3;
+      --success: #28a745; --info: #17a2b8; --warning: #ffc107; --danger:
+      #dc3545; --light: #f8f9fa; --light-v2: #d6d6d6; --light-gray: #ebecf2;
+      --light-mode: #756d7f; --light-mode-brig: #dad1e3; --light-mode-darker:
+      #4a4152; --dark: #343a40; --font-family-sans-serif:
+      -apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,"Helvetica
+      Neue",Arial,"Noto Sans",sans-serif,"Apple Color Emoji","Segoe UI
+      Emoji","Segoe UI Symbol","Noto Color Emoji"; --font-family-monospace:
+      SFMono-Regular,Menlo,Monaco,Consolas,"Liberation Mono","Courier
+      New",monospace; } * { box-sizing: border-box; } html, body { margin: 0;
+      width: 100%; min-height: 100vh; overflow-x: hidden; font-family:
+      var(--font-family-sans-serif); scroll-behavior: smooth;
+      -webkit-font-smoothing: antialiased; background-color: var(--bc-gray);
+      transition: background-color .2s ease-in-out; } main { min-height: 100vh;
+      background-image: url("https://i.imgur.com/2MsAhsc.jpg"); background-size:
+      50%; background-repeat: repeat; } footer { background-color: var(--bc); }
+      /* Classes */ /* ScrollTop */ .back-to-top { position: fixed; right: 30px;
+      bottom: 30px; display: none; z-index: 98; } .back-to-top a svg { fill:
+      var(--bc-purple); } .back-to-top a { display: block; padding: 10px;
+      cursor: pointer; opacity: 0; transition: all .35s ease-in-out; }
+      .back-to-top a:hover { transform: scale(1.1, 1.1); } /* Space */ .space {
+      min-height: 15vh; } .large-space { min-height: 35vh; } /* Navbar */
+      #navbar { top: 0; width: 100%; min-height: 8vh; background-color:
+      var(--bc); display: grid; grid-template-columns: 1fr 40% 40% 1fr;
+      position: fixed; z-index: 500; } .nav-left-space { grid-column: 1; }
+      .nav-right-space { grid-column: 4; } .nav-left { padding: .5em 0; height:
+      100%; grid-column: 2; display: flex; justify-content: flex-start;
+      align-items: center; } .nav-right { padding: .5em 0; height: 100%;
+      grid-column: 3; display: flex; justify-content: flex-end; align-items:
+      center; } /* Nav Button */ #nav-icon3 { width: 30px; height: 30px;
+      position: relative; display: block; margin: .5em; -webkit-transform:
+      rotate(0deg); -moz-transform: rotate(0deg); -o-transform: rotate(0deg);
+      transform: rotate(0deg); -webkit-transition: .5s ease-in-out;
+      -moz-transition: .5s ease-in-out; -o-transition: .5s ease-in-out;
+      transition: .5s ease-in-out; cursor: pointer; z-index: 135; } #nav-icon3
+      span { display: block; position: absolute; height: 3px; width: 100%;
+      background: var(--white); border-radius: 19px; opacity: 1; left: 0;
+      -webkit-transform: rotate(0deg); -moz-transform: rotate(0deg);
+      -o-transform: rotate(0deg); transform: rotate(0deg); -webkit-transition:
+      .25s ease-in-out; -moz-transition: .25s ease-in-out; -o-transition: .25s
+      ease-in-out; transition: .25s ease-in-out; } #nav-icon3 span:nth-child(1)
+      { top: 0; } #nav-icon3 span:nth-child(2),#nav-icon3 span:nth-child(3) {
+      top: 11px; } #nav-icon3 span:nth-child(4) { top: 22px; } #nav-icon3.open
+      span:nth-child(1) { top: 18px; width: 0; left: 50%; } #nav-icon3.open
+      span:nth-child(2) { -webkit-transform: rotate(45deg); -moz-transform:
+      rotate(45deg); -o-transform: rotate(45deg); transform: rotate(45deg); }
+      #nav-icon3.open span:nth-child(3) { -webkit-transform: rotate(-45deg);
+      -moz-transform: rotate(-45deg); -o-transform: rotate(-45deg); transform:
+      rotate(-45deg); } #nav-icon3.open span:nth-child(4) { top: 18px; width: 0;
+      left: 50%; } /* Navbar Items */ #navbar-items { padding: 0;
+      list-style-type: none; display: flex; justify-content: flex-end;
+      align-items: center; } .navbar-items { padding: 0; margin: .5em 0 2em 0;
+      list-style-type: none; display: flex; justify-content: flex-start;
+      align-items: center; } .navbar-item { margin: 0 .75em; line-height: 0;
+      color: var(--white); font-size: 1.22rem; font-weight: 300; cursor:
+      pointer; } .nb-item-last { margin: 0 0 0 1em; } .navbar-item-inner {
+      margin: 0; text-decoration: none; color: var(--white); transition: color
+      .3s; } .navbar-item-inner:hover { color: var(--primary); }
+      .navbar-item-inner::after { border-bottom: 2px solid var(--primary);
+      content: ''; display: block; position: relative; left: 0; top: 6px;
+      transition: width .3s; width: 0; } .navbar-item-inner:hover::after {
+      width: 102%; } .navbar-item-inner-active { margin: 0; text-decoration:
+      none; color: var(--white); } .navbar-item-inner-active::after {
+      border-bottom: 2px solid var(--primary); content: ''; display: block;
+      position: relative; left: 0; top: 14px; transition: width .3s; width:
+      100%; } /* Header */ #header { width: 100%; margin: 8vh 0 0 0; height:
+      calc(100vh - 8vh); position: relative; background-image:
+      url("https://i.imgur.com/aWsUzMP.jpg"); background-attachment: fixed;
+      background-position: center; background-repeat: no-repeat;
+      background-size: cover; } .header-logo-wrapper { width: 100%; height:
+      100%; display: flex; justify-content: center; align-items: center;
+      flex-direction: column; position: absolute; z-index: 11; } .header-logo {
+      padding: 5vh 0 10vh 0; width: 150px; opacity: 1; } .header-button {
+      border: none; background-color: transparent; color: var(--white); cursor:
+      pointer; transition: color .2s ease-in-out; } .header-button:hover {
+      color: var(--secondary); } .header-button:focus { outline: none; }
+      .header-button i { top: 0; font-size: 2em; position: relative; animation:
+      header-btn 1.7s cubic-bezier(.175,.885,.32,1.275) infinite; }
+      .header-overlay { width: 100%; height: 100%; position: absolute;
+      background-color: rgba(0, 0, 0, .5); z-index: 10; } /* Main */ #main {
+      display: flex; justify-content: flex-start; align-items: center;
+      flex-direction: column; } /* Featured Line */ .feature-line { width: 100%;
+      background-color: var(--bc); position: relative; } .feature-wrapper {
+      padding: 5em 0; } .feature-blocks { display: flex; height: 65vh;
+      justify-content: center; align-items: center; position: relative; }
+      .feature-block { position: relative; } #fb1 { width: 30%; cursor: pointer;
+      position: absolute; left: -12%; opacity: .5; } #fb2 { width: 40%; cursor:
+      pointer; position: relative; left: 0; } #fb3 { width: 30%; cursor:
+      pointer; position: absolute; right: -12%; opacity: .5; } #feat-link1 {
+      pointer-events: none; } #feat-link3 { pointer-events: none; } .feature-img
+      { width: 100%; } .feature-top-bar { display: flex; background-color:
+      var(--extra-dark-blue); justify-content: space-between; align-items:
+      center; color: #d5d5d5; } .post-title { margin: 1em; position: relative; }
+      .title-dev { margin: 0; display: inline-block; text-decoration: none;
+      color: #5555ff; cursor: pointer; } .title-dev span { display:
+      inline-block; color: #555555; } .title-own { margin: 0; display:
+      inline-block; text-decoration: none; color: #aa0000; cursor: pointer; }
+      .title-own span { display: inline-block; color: #ffffff; }
+      .titleuname-verified { width: 15px; height: auto; cursor: default; }
+      .post-date { margin: 1em; color: var(--gray); } .feature-row { margin: 2em
+      0; display: flex; justify-content: center; align-items: center; }
+      .feat-cic { margin: .75em; border-radius: 50%; padding: .5em; } .fc1 {
+      cursor: pointer; background-color: var(--black); } .fc2 { cursor: pointer;
+      background-color: var(--extra-dark-blue); } .fc3 { cursor: pointer;
+      background-color: var(--black); } /* Post */ .post-section { width: 65%;
+      background-color: #0e0e10; } .post-blocks { margin: 0; width: 100%;
+      display: flex; justify-content: center; flex-direction: column;
+      align-items: center; position: relative; } .post-block { width: 100%;
+      margin: 2em 0; position: relative; display: flex; justify-content: center;
+      align-items: center; flex-direction: column; } .post-img-wrapper { width:
+      100%; } .post-img { margin: 0; width: 100%; } .post-top-bar { width: 100%;
+      display: flex; background-color: var(--extra-dark-blue); justify-content:
+      space-between; align-items: center; color: #d5d5d5; } .post-container {
+      padding: 2em; width: 100%; color: var(--white); } .post-sec-title {
+      margin: 0; font-size: 2rem; } .post-sec-text { color: var(--gray-light); }
+      .post-bottom-line { margin: 4em 0 0 0; width: 100%; display: flex;
+      justify-content: space-between; align-items: center; } .post-b-left {
+      color: var(--gray-extra-dark); } .post-b-left a { margin: 0 .5em 0 0;
+      cursor: pointer; } .post-b-right a { padding: .5em; color:
+      var(--gray-extra-dark); text-decoration: none; transition: color .2s
+      ease-in-out; } .post-b-right a:hover { color: var(--primary); } /* Media
+      */ .media-wrapper { width: 100%; } .media-inner { width: 100%; } /* User
+      */ .username-wrapper { position: relative; } .username-dev { margin: 0;
+      display: inline-block; color: #5555ff; font-size: 2em; cursor: default; }
+      .username-dev span { display: inline-block; color: #555555; }
+      .uname-verified { width: 25px; height: auto; cursor: default; } .verified
+      { width: 100%; color: var(--black); background-color: var(--white);
+      font-family: "Roboto"; text-transform: uppercase; letter-spacing: .2em;
+      font-weight: 900; text-align: center; border-radius: 5px; font-size: 1em;
+      padding: .25em; position: absolute; pointer-events: none; top: 150%; left:
+      0; opacity: 0; transition: all .5s cubic-bezier(.175,.885,.32,1.275); }
+      .verified::before { content: ""; display: block; width: 0; height: 0;
+      transform: rotateZ(-90deg); border-top: 12px solid transparent;
+      border-bottom: 12px solid transparent; border-left: 12px solid
+      var(--white); position: absolute; top: -15px; left: 50%; } /* Footer */
+      #footer { width: 100%; min-height: 30vh; padding: 25vh 0 0 0; display:
+      flex; justify-content: center; align-items: center; flex-direction:
+      column; } .footer-logo-wrapper { width: 100%; display: flex;
+      justify-content: center; align-items: center; } .footer-logo { padding:
+      5vh 0 10vh 0; width: 115px; opacity: 1; } .footer-inner { width: 80%;
+      min-height: 25vh; display: flex; justify-content: center; align-items:
+      center; } .footer-left { width: 50%; height: 100%; display: flex;
+      justify-content: space-evenly; align-items: center; } .footer-left a {
+      color: var(--white); font-size: 1.11rem; letter-spacing: .1em;
+      font-weight: 300; cursor: pointer; transition: color .2s ease-in-out; }
+      .footer-left a:hover { color: var(--primary); } .footer-ico { width: 25px;
+      } .footer-right { width: 50%; height: 100%; display: flex;
+      justify-content: flex-start; flex-direction: column; align-items:
+      flex-start; } .footer-links { margin: 0 0 1.5em 0; } .footer-link {
+      margin: 0 1em; color: var(--white); cursor: pointer; text-decoration:
+      none; transition: color .2s ease-in-out; } .footer-link:hover { color:
+      var(--primary); } .fl-first { margin: 0 1em 0 0; } .fl-last { margin: 0 0
+      0 1em; } .footer-text { margin: 1em .5em; color: var(--gray); font-size:
+      .85em; width: 50%; transition: color .2s ease-in-out; } .footer-sites {
+      color: var(--gray); font-size: .85em; } .footer-sites a { margin: 0 .5em;
+      color: var(--white); border-bottom: 1px solid var(--white);
+      text-decoration: none; font-size: .8em; cursor: pointer; transition: all
+      .2s ease-in-out; } .footer-sites a:hover { color: var(--primary);
+      border-bottom: 1px solid var(--primary); } /* Selection */ ::selection {
+      color: var(--white); background: var(--primary); } /* SCROLLBAR */
+      ::-webkit-scrollbar-track { background-color: #F5F5F5; }
+      ::-webkit-scrollbar { width: 12px; background-color: #F5F5F5; }
+      ::-webkit-scrollbar-thumb { background-color: var(--primary); } /*
+      @keyframes */ @keyframes header-btn { 0% { top: 0; } 50% { top: 8px; }
+      100% { top: 0; } } /* @media rules */ @media (max-width: 1440px) {
+      .post-section { width: 75%; } } @media (max-width: 1024px) { #navbar {
+      grid-template-columns: 1fr 30% 60% 1fr; } .post-section { width: 85%; }
+      .feature-blocks { height: 55vh; } #fb2 { width: 50%; } .footer-inner {
+      width: 100%; flex-direction: column; } .footer-left { width: 100%;
+      flex-direction: column; align-items: center; justify-content: center; }
+      .footer-right { width: 100%; align-items: center; justify-content: center;
+      } .footer-mail { margin: 2em 0 0 0; } .footer-links { margin: 1.5em 0
+      1.5em 0; } .footer-text { text-align: center; } .footer-sites { margin:
+      .5em 0 4em 0; } .fl-first { margin: 0 1em 0 1em; } .fl-last { margin: 0
+      1em 0 1em; } } @media (max-width: 767px) { #navbar {
+      grid-template-columns: 1fr 25% 65% 1fr; } .username-dev { font-size:
+      1.8em; } .no-mob { display: none; } .post-section { width: 100%; }
+      .feature-blocks { height: 45vh; } #fb2 { width: 55%; } } @media
+      (max-width: 560px) { .username-dev { font-size: 1.6em; } .uname-verified {
+      width: 21px; } .footer-link { display: block; margin: 1em 0 1em 0; } }
+      @media (max-width: 420px) { .username-dev { font-size: 1.5em; }
+      .uname-verified { width: 20px; } }
+
+    </style>
+  </head>
+  <body>
+    <nav id="navbar">
+      <div class="nav-left">
+        <div id="nav-icon3">
+          <span></span>
+          <span></span>
+          <span></span>
+          <span></span>
+        </div>
+      </div>
+      <div class="nav-right">
+        <ul id="navbar-items">
+          <li class="navbar-item no-mob"><a
+              class="navbar-item-inner"
+              href="#"
+            ><span><i class="uil uil-home-alt"></i> Home.</span></a></li>
+          <li class="navbar-item no-mob"><a
+              class="navbar-item-inner"
+              href="#"
+            ><span><i class="uil uil-comment-image"></i> Forum.</span></a></li>
+          <li class="navbar-item no-mob"><a
+              class="navbar-item-inner"
+              href="#"
+            ><span><i class="uil uil-server-alt"></i> Servers.</span></a></li>
+          <li class="navbar-item"><a class="navbar-item-inner" href="#"><span><i
+                  class="uil uil-user"
+                ></i></span></a></li>
+        </ul>
+      </div>
+    </nav>
+    <div class="back-to-top" style="display: block; opacity: 1;">
+      <a
+        class="semplice-event"
+        href="#"
+        data-event-type="helper"
+        data-event="scrollToTop"
+        style="opacity: 1;"
+      >
+        <svg
+          version="1.1"
+          id="Ebene_1"
+          xmlns="http://www.w3.org/2000/svg"
+          xmlns:xlink="http://www.w3.org/1999/xlink"
+          x="0px"
+          y="0px"
+          width="53px"
+          height="20px"
+          viewBox="0 0 53 20"
+          enable-background="new 0 0 53 20"
+          xml:space="preserve"
+        >
+          <g id="Ebene_3"></g>
+          <g><polygon
+              points="43.886,16.221 42.697,17.687 26.5,4.731 10.303,17.688 9.114,16.221 26.5,2.312 	"
+            ></polygon></g>
+        </svg>
+      </a>
+    </div>
+    <header id="header" data-type="parallax" data-speed="2">
+      <div class="header-logo-wrapper">
+        <svg
+          class="header-logo"
+          xmlns="http://www.w3.org/2000/svg"
+          id="Layer_2"
+          data-name="Layer 2"
+          viewBox="0 0 805.93 1044.03"
+        >
+          <defs><style
+            >.cls-6{fill:none;stroke:var(--white);stroke-miterlimit:10;stroke-width:45px;}.cls-7{font-size:92.32px;fill:var(--white);font-family:DINPro,
+              DIN Pro;letter-spacing:0.26em;}.cls-5{letter-spacing:0.28em;}</style></defs>
+          <title>icon-wtext</title>
+          <polyline
+            class="cls-6"
+            points="518.08 328.59 783.43 177.13 783.43 39 401.75 258.32 22.5 39 22.5 183.8 588.35 507.92 510.81 553.96 783.43 706.63 783.43 839.92 402.97 621.82 22.5 839.92 22.5 707.85 386 497.02"
+          />
+          <text class="cls-7" transform="translate(187.07 1022.89)">X<tspan
+              class="cls-7"
+              x="74.41"
+              y="0"
+            >CRAFT</tspan></text>
+        </svg>
+        <button class="header-button">
+          <i class="uil uil-arrow-down"></i>
+        </button>
+      </div>
+      <div class="header-overlay"></div>
+    </header>
+    <main id="main">
+      <!-- This image slider thing is not finished, but quite responsive nonetheless -->
+      <div class="feature-line">
+        <div class="feature-wrapper">
+          <div class="feature-blocks">
+            <div id="fb1" class="feature-block">
+              <div class="feature-top-bar">
+                <p class="post-title">
+                  Posted by
+                  <a class="title-dev" href="#">dlirA01</a>
+                  <svg
+                    class="titleuname-verified"
+                    xmlns="http://www.w3.org/2000/svg"
+                    viewBox="0 0 1350.03 1326.16"
+                  >
+                    <defs><style
+                      >.cls-11{fill:var(--primary);}.cls-12{fill:#ffffff;}</style></defs><title
+                    >verified</title>
+                    <g id="Layer_3" data-name="Layer 3">
+                      <polygon
+                        class="cls-11"
+                        points="0 747.37 120.83 569.85 70.11 355.04 283.43 292.38 307.3 107.41 554.93 107.41 693.66 0 862.23 120.83 1072.57 126.8 1112.84 319.23 1293.35 399.79 1256.05 614.6 1350.03 793.61 1197.87 941.29 1202.35 1147.15 969.64 1178.48 868.2 1326.16 675.02 1235.17 493.77 1315.72 354.99 1133.73 165.58 1123.29 152.16 878.64 0 747.37"
+                      /></g>
+                    <g id="Layer_2" data-name="Layer 2">
+                      <path
+                        class="cls-12"
+                        d="M755.33,979.23s125.85,78.43,165.06,114c34.93-36,234.37-277.22,308.24-331.94,54.71,21.89,85,73.4,93,80.25-3.64,21.89-321.91,418.58-368.42,445.94-32.74-3.84-259-195.16-275.4-217C689.67,1049.45,725.24,1003.85,755.33,979.23Z"
+                        transform="translate(-322.83 -335.95)"
+                      /></g>
+                  </svg>
+                </p>
+                <p class="post-date">23.04.20</p>
+              </div>
+              <a id="feat-link1" href=""><img
+                  class="feature-img"
+                  src="https://i.imgur.com/qmiMDUM.jpg"
+                  alt=""
+                /></a>
+            </div>
+            <div id="fb2" class="feature-block">
+              <div class="feature-top-bar">
+                <p class="post-title">
+                  Posted by
+                  <a class="title-dev" href="#">dlirA01</a>
+                  <svg
+                    class="titleuname-verified"
+                    xmlns="http://www.w3.org/2000/svg"
+                    viewBox="0 0 1350.03 1326.16"
+                  >
+                    <defs><style
+                      >.cls-11{fill:var(--primary);}.cls-12{fill:#ffffff;}</style></defs><title
+                    >verified</title>
+                    <g id="Layer_3" data-name="Layer 3">
+                      <polygon
+                        class="cls-11"
+                        points="0 747.37 120.83 569.85 70.11 355.04 283.43 292.38 307.3 107.41 554.93 107.41 693.66 0 862.23 120.83 1072.57 126.8 1112.84 319.23 1293.35 399.79 1256.05 614.6 1350.03 793.61 1197.87 941.29 1202.35 1147.15 969.64 1178.48 868.2 1326.16 675.02 1235.17 493.77 1315.72 354.99 1133.73 165.58 1123.29 152.16 878.64 0 747.37"
+                      /></g>
+                    <g id="Layer_2" data-name="Layer 2">
+                      <path
+                        class="cls-12"
+                        d="M755.33,979.23s125.85,78.43,165.06,114c34.93-36,234.37-277.22,308.24-331.94,54.71,21.89,85,73.4,93,80.25-3.64,21.89-321.91,418.58-368.42,445.94-32.74-3.84-259-195.16-275.4-217C689.67,1049.45,725.24,1003.85,755.33,979.23Z"
+                        transform="translate(-322.83 -335.95)"
+                      /></g>
+                  </svg>
+                </p>
+                <p class="post-date">24.04.20</p>
+              </div>
+              <a id="feat-link2" href="#"><img
+                  class="feature-img"
+                  src="https://i.imgur.com/Ba8QxNt.jpg"
+                  alt=""
+                /></a>
+            </div>
+            <div id="fb3" class="feature-block">
+              <div class="feature-top-bar">
+                <p class="post-title">
+                  Posted by
+                  <a class="title-own" href="">Artx999</a>
+                  <svg
+                    class="titleuname-verified"
+                    xmlns="http://www.w3.org/2000/svg"
+                    viewBox="0 0 1350.03 1326.16"
+                  >
+                    <defs><style
+                      >.cls-11{fill:var(--primary);}.cls-12{fill:#ffffff;}</style></defs><title
+                    >verified</title>
+                    <g id="Layer_3" data-name="Layer 3">
+                      <polygon
+                        class="cls-11"
+                        points="0 747.37 120.83 569.85 70.11 355.04 283.43 292.38 307.3 107.41 554.93 107.41 693.66 0 862.23 120.83 1072.57 126.8 1112.84 319.23 1293.35 399.79 1256.05 614.6 1350.03 793.61 1197.87 941.29 1202.35 1147.15 969.64 1178.48 868.2 1326.16 675.02 1235.17 493.77 1315.72 354.99 1133.73 165.58 1123.29 152.16 878.64 0 747.37"
+                      /></g>
+                    <g id="Layer_2" data-name="Layer 2">
+                      <path
+                        class="cls-12"
+                        d="M755.33,979.23s125.85,78.43,165.06,114c34.93-36,234.37-277.22,308.24-331.94,54.71,21.89,85,73.4,93,80.25-3.64,21.89-321.91,418.58-368.42,445.94-32.74-3.84-259-195.16-275.4-217C689.67,1049.45,725.24,1003.85,755.33,979.23Z"
+                        transform="translate(-322.83 -335.95)"
+                      /></g>
+                  </svg>
+                </p>
+                <p class="post-date">22.04.20</p>
+              </div>
+              <a id="feat-link3" href="#"><img
+                  class="feature-img"
+                  src="https://i.imgur.com/LIlTvp3.jpg"
+                  alt=""
+                /></a>
+            </div>
+          </div>
+          <div class="feature-row">
+            <div class="feat-cic fc1"></div>
+            <div class="feat-cic fc2"></div>
+            <div class="feat-cic fc3"></div>
+          </div>
+        </div>
+      </div>
+      <div class="post-section">
+        <div class="large-space"></div>
+        <div class="post-blocks">
+          <div class="post-block">
+            <div class="post-top-bar">
+              <p class="post-title">
+                Posted by
+                <a class="title-dev" href="#">dlirA01</a>
+                <svg
+                  class="titleuname-verified"
+                  xmlns="http://www.w3.org/2000/svg"
+                  viewBox="0 0 1350.03 1326.16"
+                >
+                  <defs><style
+                    >.cls-11{fill:var(--primary);}.cls-12{fill:#ffffff;}</style></defs><title
+                  >verified</title>
+                  <g id="Layer_3" data-name="Layer 3">
+                    <polygon
+                      class="cls-11"
+                      points="0 747.37 120.83 569.85 70.11 355.04 283.43 292.38 307.3 107.41 554.93 107.41 693.66 0 862.23 120.83 1072.57 126.8 1112.84 319.23 1293.35 399.79 1256.05 614.6 1350.03 793.61 1197.87 941.29 1202.35 1147.15 969.64 1178.48 868.2 1326.16 675.02 1235.17 493.77 1315.72 354.99 1133.73 165.58 1123.29 152.16 878.64 0 747.37"
+                    /></g>
+                  <g id="Layer_2" data-name="Layer 2">
+                    <path
+                      class="cls-12"
+                      d="M755.33,979.23s125.85,78.43,165.06,114c34.93-36,234.37-277.22,308.24-331.94,54.71,21.89,85,73.4,93,80.25-3.64,21.89-321.91,418.58-368.42,445.94-32.74-3.84-259-195.16-275.4-217C689.67,1049.45,725.24,1003.85,755.33,979.23Z"
+                      transform="translate(-322.83 -335.95)"
+                    /></g>
+                </svg>
+              </p>
+              <p class="post-date">24.04.20</p>
+            </div>
+            <a class="post-img-wrapper" href="#"><img
+                class="post-img"
+                src="https://i.imgur.com/NPGXUJI.jpg"
+                alt=""
+              /></a>
+            <div class="post-container">
+              <h2 class="post-sec-title">This is a post title</h2>
+              <p class="post-sec-text">Lorem ipsum dolor sit amet, consectetur
+                adipiscing elit, sed do eiusmod tempor incididunt ut labore et
+                dolore magna aliqua. Ut enim ad minim veniam, quis nostrud
+                exercitation ullamco laboris nisi ut aliquip ex ea commodo
+                consequat. Duis aute irure dolor in reprehenderit in voluptate
+                velit esse cillum dolore eu fugiat nulla pariatur. Excepteur
+                sint occaecat cupidatat non proident, sunt in culpa qui officia
+                deserunt mollit anim id est laborum.</p>
+              <div class="post-bottom-line">
+                <div class="post-b-left">
+                  <a><i class="uil uil-thumbs-up"></i> 19</a>
+                  <a><i class="uil uil-comment"></i> 3</a>
+                </div>
+                <div class="post-b-right">
+                  <a href="#">Read More...</a>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="post-block">
+            <div class="post-top-bar">
+              <p class="post-title">
+                Posted by
+                <a class="title-dev" href="">dlirA01</a>
+                <svg
+                  class="titleuname-verified"
+                  xmlns="http://www.w3.org/2000/svg"
+                  viewBox="0 0 1350.03 1326.16"
+                >
+                  <defs><style
+                    >.cls-11{fill:var(--primary);}.cls-12{fill:#ffffff;}</style></defs><title
+                  >verified</title>
+                  <g id="Layer_3" data-name="Layer 3">
+                    <polygon
+                      class="cls-11"
+                      points="0 747.37 120.83 569.85 70.11 355.04 283.43 292.38 307.3 107.41 554.93 107.41 693.66 0 862.23 120.83 1072.57 126.8 1112.84 319.23 1293.35 399.79 1256.05 614.6 1350.03 793.61 1197.87 941.29 1202.35 1147.15 969.64 1178.48 868.2 1326.16 675.02 1235.17 493.77 1315.72 354.99 1133.73 165.58 1123.29 152.16 878.64 0 747.37"
+                    /></g>
+                  <g id="Layer_2" data-name="Layer 2">
+                    <path
+                      class="cls-12"
+                      d="M755.33,979.23s125.85,78.43,165.06,114c34.93-36,234.37-277.22,308.24-331.94,54.71,21.89,85,73.4,93,80.25-3.64,21.89-321.91,418.58-368.42,445.94-32.74-3.84-259-195.16-275.4-217C689.67,1049.45,725.24,1003.85,755.33,979.23Z"
+                      transform="translate(-322.83 -335.95)"
+                    /></g>
+                </svg>
+              </p>
+              <p class="post-date">20.04.20</p>
+            </div>
+            <img
+              class="post-img"
+              src="https://i.imgur.com/EK0bkOn.jpg"
+              alt=""
+            />
+          </div>
+        </div>
+        <div class="space"></div>
+      </div>
+    </main>
+    <footer id="footer">
+      <div class="footer-logo-wrapper">
+        <svg
+          class="footer-logo"
+          xmlns="http://www.w3.org/2000/svg"
+          id="Layer_2"
+          data-name="Layer 2"
+          viewBox="0 0 805.93 1044.03"
+        >
+          <defs><style
+            >.cls-4{fill:none;stroke:var(--bc-purple);stroke-miterlimit:10;stroke-width:45px;}.cls-5{font-size:92.32px;fill:var(--bc-purple);font-family:DINPro,
+              DIN Pro;letter-spacing:0.26em;}.cls-5{letter-spacing:0.28em;}</style></defs>
+          <title>icon-wtext</title>
+          <polyline
+            class="cls-4"
+            points="518.08 328.59 783.43 177.13 783.43 39 401.75 258.32 22.5 39 22.5 183.8 588.35 507.92 510.81 553.96 783.43 706.63 783.43 839.92 402.97 621.82 22.5 839.92 22.5 707.85 386 497.02"
+          />
+          <text class="cls-5" transform="translate(187.07 1022.89)">X<tspan
+              class="cls-5"
+              x="74.41"
+              y="0"
+            >CRAFT</tspan></text>
+        </svg>
+      </div>
+      <div class="footer-inner">
+        <div class="footer-left">
+          <svg
+            class="footer-ico"
+            xmlns="http://www.w3.org/2000/svg"
+            id="Layer_2"
+            data-name="Layer 2"
+            viewBox="0 0 805.93 878.75"
+          >
+            <defs><style
+              >.cls-1{fill:none;stroke:indigo;stroke-miterlimit:10;stroke-width:45px;}</style></defs><title
+            >icon</title>
+            <polyline
+              class="cls-1"
+              points="518.08 328.59 783.43 177.13 783.43 39 401.75 258.32 22.5 39 22.5 183.8 588.35 507.92 510.81 553.96 783.43 706.63 783.43 839.92 402.97 621.82 22.5 839.92 22.5 707.85 386 497.02"
+            />
+          </svg>
+          <a class="footer-mail">Find us everywhere.</a>
+        </div>
+        <div class="footer-right">
+          <div class="footer-links">
+            <a
+              class="footer-link fl-first"
+              href="https://www.youtube.com"
+              target="_blank"
+            >YouTube.</a>
+            <a
+              class="footer-link"
+              href="https://twitter.com"
+              target="_blank"
+            >Twitter.</a>
+            <a
+              class="footer-link"
+              href="https://www.instagram.com/"
+              target="_blank"
+            >Instagram.</a>
+            <a
+              class="footer-link fl-last"
+              href="https://discordapp.com"
+              target="_blank"
+            >Discord.</a>
+          </div>
+          <div class="footer-text">
+            <p>xCraft &copy2020. All rights reserved.</p>
+            <p>Made with ♥ by Adarsh</p>
+          </div>
+          <div class="footer-sites">
+            <a>Cookie Policy.</a>
+            |
+            <a href="https://www.unsplash.com" target="_blank">Unsplash.</a>
+          </div>
+        </div>
+      </div>
+    </footer>
+
+    <script>
+
+      var delayInMilliseconds = 500; $(document).ready(function() {
+      $(".header-button").click(function() { $('html, body').animate({
+      scrollTop: $("#main").offset().top + (0) }, 750); }); }); // Navbar Icon
+      // =========== // Didn't include menu thingie, because i didn't finish the
+      css or html for it, so for now i just left the javascript code for it in
+      here so you could see the animation for the button.
+      $('#nav-icon3').click(function(){ if($("#nav-icon3").hasClass('open')) {
+      $('#nav-icon3').toggleClass('open'); var $selector2 = $('#menu');
+      $selector2 .data('oHeight',$selector2.height()) .css('height','0')
+      .data('nHeight',$selector2.height()) .height($selector2.data('oHeight'))
+      .animate({height: $selector2.data('nHeight')},300); setTimeout(function()
+      { $('#menu').css("display", "none"); }, delayInMilliseconds); } else {
+      $('#nav-icon3').toggleClass('open'); var $selector = $('#menu'); $selector
+      .data('oHeight',$selector.height()) .css('height','auto')
+      .data('nHeight',$selector.height()) .height($selector.data('oHeight'))
+      .animate({height: $selector.data('nHeight')},300);
+      $('#menu').css("display", "grid"); } }); // Back To Top Button //
+      ================== $(window).scroll(function() { var scroll =
+      $(window).scrollTop(); if (scroll <= 250) { $(".back-to-top
+      a").css("opacity", "0"); } else { if (scroll >= 250) { $(".back-to-top
+      a").css("opacity", "1"); } } }); $('a[href*="#"]') .not('[href="#"]')
+      .not('[href="#0"]') .click(function(event) { if (
+      location.pathname.replace(/^\//, '') == this.pathname.replace(/^\//, '')
+      && location.hostname == this.hostname ) { var target = $(this.hash);
+      target = target.length ? target : $('[name=' + this.hash.slice(1) + ']');
+      if (target.length) { event.preventDefault(); $('html, body').animate({
+      scrollTop: target.offset().top }, 1000, function() { var $target =
+      $(target); $target.focus(); if ($target.is(":focus")) { return false; }
+      else { $target.attr('tabindex','-1'); $target.focus(); } }); } } }); //
+      Verified // ======== $(".username-dev, .uname-verified").on({ mouseenter:
+      function () { $(".verified").css("opacity", "1");
+      $(".verified").css("top", "130%"); }, mouseleave: function () {
+      $(".verified").css("opacity", "0"); $(".verified").css("top", "150%"); }
+      }); ;(function($) { $window = $(window);
+      $('*[data-type="parallax"]').each(function(){ var $bgobj = $(this);
+      $(window).scroll(function() { var yPos = -($window.scrollTop() /
+      $bgobj.data('speed')); var coords = '50% '+ yPos + 'px'; $bgobj.css({
+      backgroundPosition: coords }); }); }); })(jQuery); // this is faaaar from
+      optimized, but i'm putting in this code, because what i'm currently is not
+      done yet. // Featured Image const fblock1 = $('#fb1'); const fbtn1 =
+      $('.fc1'); const flink1 = $('#feat-link1'); const fblock2 = $('#fb2');
+      const fbtn2 = $('.fc2'); const flink2 = $('#feat-link2'); const fblock3 =
+      $('#fb3'); const fbtn3 = $('.fc3'); const flink3 = $('#feat-link3'); const
+      width = $(window).width(); if ((width > 1024 )) { fblock1.click(function()
+      { fblock3.css("transition", "width .3s ease-in-out, opacity .3s
+      ease-in-out, right .3s ease-in-out"); fbtn3.css("transition",
+      "background-color .3s ease-in-out"); fblock3.css("width", "30%");
+      fblock3.css("opacity", ".5"); fblock3.css("right", "-40%");
+      flink3.css("pointer-events", "none"); fbtn3.css("background-color",
+      "var(--black)"); fblock2.css("transition", "width .3s ease-in-out, opacity
+      .3s ease-in-out, left .3s ease-in-out"); fbtn2.css("transition",
+      "background-color .3s ease-in-out"); fblock2.css("width", "30%");
+      fblock2.css("opacity", ".5"); fblock2.css("left", "42%");
+      flink2.css("pointer-events", "none"); fbtn2.css("background-color",
+      "var(--black)"); fblock1.css("transition", "width .3s ease-in-out, opacity
+      .3s ease-in-out, left .3s ease-in-out, left .3s ease-in-out");
+      fbtn1.css("transition", "background-color .3s ease-in-out");
+      fblock1.css("width", "40%"); fblock1.css("opacity", "1");
+      fblock1.css("left", "30%"); flink1.css("pointer-events", "all");
+      fbtn1.css("background-color", "var(--extra-dark-blue)"); });
+      fbtn1.click(function() { fblock3.css("transition", "width .3s ease-in-out,
+      opacity .3s ease-in-out, right .3s ease-in-out"); fbtn3.css("transition",
+      "background-color .3s ease-in-out"); fblock3.css("width", "30%");
+      fblock3.css("opacity", ".5"); fblock3.css("right", "-40%");
+      flink3.css("pointer-events", "none"); fbtn3.css("background-color",
+      "var(--black)"); fblock2.css("transition", "width .3s ease-in-out, opacity
+      .3s ease-in-out, left .3s ease-in-out"); fbtn2.css("transition",
+      "background-color .3s ease-in-out"); fblock2.css("width", "30%");
+      fblock2.css("opacity", ".5"); fblock2.css("left", "42%");
+      flink2.css("pointer-events", "none"); fbtn2.css("background-color",
+      "var(--black)"); fblock1.css("transition", "width .3s ease-in-out, opacity
+      .3s ease-in-out, left .3s ease-in-out"); fbtn1.css("transition",
+      "background-color .3s ease-in-out"); fblock1.css("width", "40%");
+      fblock1.css("opacity", "1"); fblock1.css("left", "30%");
+      flink1.css("pointer-events", "all"); fbtn1.css("background-color",
+      "var(--extra-dark-blue)"); }); fblock2.click(function() {
+      fblock3.css("transition", "width .3s ease-in-out, opacity .3s ease-in-out,
+      right .3s ease-in-out"); fbtn3.css("transition", "background-color .3s
+      ease-in-out"); fblock3.css("width", "30%"); fblock3.css("opacity", ".5");
+      fblock3.css("right", "-12%"); flink3.css("pointer-events", "none");
+      fbtn3.css("background-color", "var(--black)"); fblock2.css("transition",
+      "width .3s ease-in-out, opacity .3s ease-in-out, left .3s ease-in-out");
+      fbtn2.css("transition", "background-color .3s ease-in-out");
+      fblock2.css("width", "40%"); fblock2.css("opacity", "1");
+      fblock2.css("left", "0"); flink2.css("pointer-events", "all");
+      fbtn2.css("background-color", "var(--extra-dark-blue)");
+      fblock1.css("transition", "width .3s ease-in-out, opacity .3s ease-in-out,
+      left .3s ease-in-out"); fbtn1.css("transition", "background-color .3s
+      ease-in-out"); fblock1.css("width", "30%"); fblock1.css("opacity", ".5");
+      fblock1.css("left", "-12%"); flink1.css("pointer-events", "none");
+      fbtn1.css("background-color", "var(--black)"); }); fbtn2.click(function()
+      { fblock3.css("transition", "width .3s ease-in-out, opacity .3s
+      ease-in-out, right .3s ease-in-out"); fbtn3.css("transition",
+      "background-color .3s ease-in-out"); fblock3.css("width", "30%");
+      fblock3.css("opacity", ".5"); fblock3.css("right", "-12%");
+      flink3.css("pointer-events", "none"); fbtn3.css("background-color",
+      "var(--black)"); fblock2.css("transition", "width .3s ease-in-out, opacity
+      .3s ease-in-out, left .3s ease-in-out"); fbtn2.css("transition",
+      "background-color .3s ease-in-out"); fblock2.css("width", "40%");
+      fblock2.css("opacity", "1"); fblock2.css("left", "0");
+      flink2.css("pointer-events", "all"); fbtn2.css("background-color",
+      "var(--extra-dark-blue)"); fblock1.css("transition", "width .3s
+      ease-in-out, opacity .3s ease-in-out, left .3s ease-in-out");
+      fbtn1.css("transition", "background-color .3s ease-in-out");
+      fblock1.css("width", "30%"); fblock1.css("opacity", ".5");
+      fblock1.css("left", "-12%"); flink1.css("pointer-events", "none");
+      fbtn1.css("background-color", "var(--black)"); });
+      fblock3.click(function() { fblock3.css("transition", "width .3s
+      ease-in-out, opacity .3s ease-in-out, right .3s ease-in-out");
+      fbtn3.css("transition", "background-color .3s ease-in-out");
+      fblock3.css("width", "40%"); fblock3.css("opacity", "1");
+      fblock3.css("right", "30%"); flink3.css("pointer-events", "all");
+      fbtn3.css("background-color", "var(--extra-dark-blue)");
+      fblock2.css("transition", "width .3s ease-in-out, opacity .3s ease-in-out,
+      left .3s ease-in-out"); fbtn2.css("transition", "background-color .3s
+      ease-in-out"); fblock2.css("width", "30%"); fblock2.css("opacity", ".5");
+      fblock2.css("left", "-42%"); flink2.css("pointer-events", "none");
+      fbtn2.css("background-color", "var(--black)"); fblock1.css("transition",
+      "width .3s ease-in-out, opacity .3s ease-in-out, left .3s ease-in-out");
+      fbtn1.css("transition", "background-color .3s ease-in-out");
+      fblock1.css("width", "30%"); fblock1.css("opacity", ".5");
+      fblock1.css("left", "-40%"); flink1.css("pointer-events", "none");
+      fbtn1.css("background-color", "var(--black)"); }); fbtn3.click(function()
+      { fblock3.css("transition", "width .3s ease-in-out, opacity .3s
+      ease-in-out, right .3s ease-in-out"); fbtn3.css("transition",
+      "background-color .3s ease-in-out"); fblock3.css("width", "40%");
+      fblock3.css("opacity", "1"); fblock3.css("right", "30%");
+      flink3.css("pointer-events", "all"); fbtn3.css("background-color",
+      "var(--extra-dark-blue)"); fblock2.css("transition", "width .3s
+      ease-in-out, opacity .3s ease-in-out, left .3s ease-in-out");
+      fbtn2.css("transition", "background-color .3s ease-in-out");
+      fblock2.css("width", "30%"); fblock2.css("opacity", ".5");
+      fblock2.css("left", "-42%"); flink2.css("pointer-events", "none");
+      fbtn2.css("background-color", "var(--black)"); fblock1.css("transition",
+      "width .3s ease-in-out, opacity .3s ease-in-out, left .3s ease-in-out");
+      fbtn1.css("transition", "background-color .3s ease-in-out");
+      fblock1.css("width", "30%"); fblock1.css("opacity", ".5");
+      fblock1.css("left", "-40%"); flink1.css("pointer-events", "none");
+      fbtn1.css("background-color", "var(--black)"); }); } if ((width <= 1024 ))
+      { fblock1.click(function() { fblock3.css("transition", "width .3s
+      ease-in-out, opacity .3s ease-in-out, right .3s ease-in-out");
+      fbtn3.css("transition", "background-color .3s ease-in-out");
+      fblock3.css("width", "30%"); fblock3.css("right", "-40%");
+      flink3.css("pointer-events", "none"); fbtn3.css("background-color",
+      "var(--black)"); fblock2.css("transition", "width .3s ease-in-out, opacity
+      .3s ease-in-out, left .3s ease-in-out"); fbtn2.css("transition",
+      "background-color .3s ease-in-out"); fblock2.css("width", "30%");
+      fblock2.css("opacity", ".5"); fblock2.css("left", "46%");
+      flink2.css("pointer-events", "none"); fbtn2.css("background-color",
+      "var(--black)"); fblock1.css("transition", "width .3s ease-in-out, opacity
+      .3s ease-in-out, left .3s ease-in-out, left .3s ease-in-out");
+      fbtn1.css("transition", "background-color .3s ease-in-out");
+      fblock1.css("width", "50%"); fblock1.css("opacity", "1");
+      fblock1.css("left", "25%"); flink1.css("pointer-events", "all");
+      fbtn1.css("background-color", "var(--extra-dark-blue)"); });
+      fbtn1.click(function() { fblock3.css("transition", "width .3s ease-in-out,
+      opacity .3s ease-in-out, right .3s ease-in-out"); fbtn3.css("transition",
+      "background-color .3s ease-in-out"); fblock3.css("width", "30%");
+      fblock3.css("right", "-40%"); flink3.css("pointer-events", "none");
+      fbtn3.css("background-color", "var(--black)"); fblock2.css("transition",
+      "width .3s ease-in-out, opacity .3s ease-in-out, left .3s ease-in-out");
+      fbtn2.css("transition", "background-color .3s ease-in-out");
+      fblock2.css("width", "30%"); fblock2.css("opacity", ".5");
+      fblock2.css("left", "46%"); flink2.css("pointer-events", "none");
+      fbtn2.css("background-color", "var(--black)"); fblock1.css("transition",
+      "width .3s ease-in-out, opacity .3s ease-in-out, left .3s ease-in-out");
+      fbtn1.css("transition", "background-color .3s ease-in-out");
+      fblock1.css("width", "50%"); fblock1.css("opacity", "1");
+      fblock1.css("left", "25%"); flink1.css("pointer-events", "all");
+      fbtn1.css("background-color", "var(--extra-dark-blue)"); });
+      fblock2.click(function() { fblock3.css("transition", "width .3s
+      ease-in-out, opacity .3s ease-in-out, right .3s ease-in-out");
+      fbtn3.css("transition", "background-color .3s ease-in-out");
+      fblock3.css("width", "30%"); fblock3.css("opacity", ".5");
+      fblock3.css("right", "-12%"); flink3.css("pointer-events", "none");
+      fbtn3.css("background-color", "var(--black)"); fblock2.css("transition",
+      "width .3s ease-in-out, opacity .3s ease-in-out, left .3s ease-in-out");
+      fbtn2.css("transition", "background-color .3s ease-in-out");
+      fblock2.css("width", "50%"); fblock2.css("opacity", "1");
+      fblock2.css("left", "0"); flink2.css("pointer-events", "all");
+      fbtn2.css("background-color", "var(--extra-dark-blue)");
+      fblock1.css("transition", "width .3s ease-in-out, opacity .3s ease-in-out,
+      left .3s ease-in-out"); fbtn1.css("transition", "background-color .3s
+      ease-in-out"); fblock1.css("width", "30%"); fblock1.css("opacity", ".5");
+      fblock1.css("left", "-12%"); flink1.css("pointer-events", "none");
+      fbtn1.css("background-color", "var(--black)"); }); fbtn2.click(function()
+      { fblock3.css("transition", "width .3s ease-in-out, opacity .3s
+      ease-in-out, right .3s ease-in-out"); fbtn3.css("transition",
+      "background-color .3s ease-in-out"); fblock3.css("width", "30%");
+      fblock3.css("opacity", ".5"); fblock3.css("right", "-12%");
+      flink3.css("pointer-events", "none"); fbtn3.css("background-color",
+      "var(--black)"); fblock2.css("transition", "width .3s ease-in-out, opacity
+      .3s ease-in-out, left .3s ease-in-out"); fbtn2.css("transition",
+      "background-color .3s ease-in-out"); fblock2.css("width", "50%");
+      fblock2.css("opacity", "1"); fblock2.css("left", "0");
+      flink2.css("pointer-events", "all"); fbtn2.css("background-color",
+      "var(--extra-dark-blue)"); fblock1.css("transition", "width .3s
+      ease-in-out, opacity .3s ease-in-out, left .3s ease-in-out");
+      fbtn1.css("transition", "background-color .3s ease-in-out");
+      fblock1.css("width", "30%"); fblock1.css("opacity", ".5");
+      fblock1.css("left", "-12%"); flink1.css("pointer-events", "none");
+      fbtn1.css("background-color", "var(--black)"); });
+      fblock3.click(function() { fblock3.css("transition", "width .3s
+      ease-in-out, opacity .3s ease-in-out, right .3s ease-in-out");
+      fbtn3.css("transition", "background-color .3s ease-in-out");
+      fblock3.css("width", "50%"); fblock3.css("opacity", "1");
+      fblock3.css("right", "25%"); flink3.css("pointer-events", "all");
+      fbtn3.css("background-color", "var(--extra-dark-blue)");
+      fblock2.css("transition", "width .3s ease-in-out, opacity .3s ease-in-out,
+      left .3s ease-in-out"); fbtn2.css("transition", "background-color .3s
+      ease-in-out"); fblock2.css("width", "30%"); fblock2.css("opacity", ".5");
+      fblock2.css("left", "-46%"); flink2.css("pointer-events", "none");
+      fbtn2.css("background-color", "var(--black)"); fblock1.css("transition",
+      "width .3s ease-in-out, opacity .3s ease-in-out, left .3s ease-in-out");
+      fbtn1.css("transition", "background-color .3s ease-in-out");
+      fblock1.css("width", "30%"); fblock1.css("opacity", ".5");
+      fblock1.css("left", "-40%"); flink1.css("pointer-events", "none");
+      fbtn1.css("background-color", "var(--black)"); }); fbtn3.click(function()
+      { fblock3.css("transition", "width .3s ease-in-out, opacity .3s
+      ease-in-out, right .3s ease-in-out"); fbtn3.css("transition",
+      "background-color .3s ease-in-out"); fblock3.css("width", "50%");
+      fblock3.css("opacity", "1"); fblock3.css("right", "25%");
+      flink3.css("pointer-events", "all"); fbtn3.css("background-color",
+      "var(--extra-dark-blue)"); fblock2.css("transition", "width .3s
+      ease-in-out, opacity .3s ease-in-out, left .3s ease-in-out");
+      fbtn2.css("transition", "background-color .3s ease-in-out");
+      fblock2.css("width", "30%"); fblock2.css("opacity", ".5");
+      fblock2.css("left", "-46%"); flink2.css("pointer-events", "none");
+      fbtn2.css("background-color", "var(--black)"); fblock1.css("transition",
+      "width .3s ease-in-out, opacity .3s ease-in-out, left .3s ease-in-out");
+      fbtn1.css("transition", "background-color .3s ease-in-out");
+      fblock1.css("width", "30%"); fblock1.css("opacity", ".5");
+      fblock1.css("left", "-40%"); flink1.css("pointer-events", "none");
+      fbtn1.css("background-color", "var(--black)"); }); } if ((width <= 767 ))
+      { fblock1.click(function() { fblock3.css("transition", "width .3s
+      ease-in-out, opacity .3s ease-in-out, right .3s ease-in-out");
+      fbtn3.css("transition", "background-color .3s ease-in-out");
+      fblock3.css("width", "30%"); fblock3.css("right", "-40%");
+      flink3.css("pointer-events", "none"); fbtn3.css("background-color",
+      "var(--black)"); fblock2.css("transition", "width .3s ease-in-out, opacity
+      .3s ease-in-out, left .3s ease-in-out"); fbtn2.css("transition",
+      "background-color .3s ease-in-out"); fblock2.css("width", "30%");
+      fblock2.css("opacity", ".5"); fblock2.css("left", "48%");
+      flink2.css("pointer-events", "none"); fbtn2.css("background-color",
+      "var(--black)"); fblock1.css("transition", "width .3s ease-in-out, opacity
+      .3s ease-in-out, left .3s ease-in-out, left .3s ease-in-out");
+      fbtn1.css("transition", "background-color .3s ease-in-out");
+      fblock1.css("width", "55%"); fblock1.css("opacity", "1");
+      fblock1.css("left", "23%"); flink1.css("pointer-events", "all");
+      fbtn1.css("background-color", "var(--extra-dark-blue)"); });
+      fbtn1.click(function() { fblock3.css("transition", "width .3s ease-in-out,
+      opacity .3s ease-in-out, right .3s ease-in-out"); fbtn3.css("transition",
+      "background-color .3s ease-in-out"); fblock3.css("width", "30%");
+      fblock3.css("right", "-40%"); flink3.css("pointer-events", "none");
+      fbtn3.css("background-color", "var(--black)"); fblock2.css("transition",
+      "width .3s ease-in-out, opacity .3s ease-in-out, left .3s ease-in-out");
+      fbtn2.css("transition", "background-color .3s ease-in-out");
+      fblock2.css("width", "30%"); fblock2.css("opacity", ".5");
+      fblock2.css("left", "48%"); flink2.css("pointer-events", "none");
+      fbtn2.css("background-color", "var(--black)"); fblock1.css("transition",
+      "width .3s ease-in-out, opacity .3s ease-in-out, left .3s ease-in-out");
+      fbtn1.css("transition", "background-color .3s ease-in-out");
+      fblock1.css("width", "55%"); fblock1.css("opacity", "1");
+      fblock1.css("left", "23%"); flink1.css("pointer-events", "all");
+      fbtn1.css("background-color", "var(--extra-dark-blue)"); });
+      fblock2.click(function() { fblock3.css("transition", "width .3s
+      ease-in-out, opacity .3s ease-in-out, right .3s ease-in-out");
+      fbtn3.css("transition", "background-color .3s ease-in-out");
+      fblock3.css("width", "30%"); fblock3.css("opacity", ".5");
+      fblock3.css("right", "-12%"); flink3.css("pointer-events", "none");
+      fbtn3.css("background-color", "var(--black)"); fblock2.css("transition",
+      "width .3s ease-in-out, opacity .3s ease-in-out, left .3s ease-in-out");
+      fbtn2.css("transition", "background-color .3s ease-in-out");
+      fblock2.css("width", "55%"); fblock2.css("opacity", "1");
+      fblock2.css("left", "0"); flink2.css("pointer-events", "all");
+      fbtn2.css("background-color", "var(--extra-dark-blue)");
+      fblock1.css("transition", "width .3s ease-in-out, opacity .3s ease-in-out,
+      left .3s ease-in-out"); fbtn1.css("transition", "background-color .3s
+      ease-in-out"); fblock1.css("width", "30%"); fblock1.css("opacity", ".5");
+      fblock1.css("left", "-12%"); flink1.css("pointer-events", "none");
+      fbtn1.css("background-color", "var(--black)"); }); fbtn2.click(function()
+      { fblock3.css("transition", "width .3s ease-in-out, opacity .3s
+      ease-in-out, right .3s ease-in-out"); fbtn3.css("transition",
+      "background-color .3s ease-in-out"); fblock3.css("width", "30%");
+      fblock3.css("opacity", ".5"); fblock3.css("right", "-12%");
+      flink3.css("pointer-events", "none"); fbtn3.css("background-color",
+      "var(--black)"); fblock2.css("transition", "width .3s ease-in-out, opacity
+      .3s ease-in-out, left .3s ease-in-out"); fbtn2.css("transition",
+      "background-color .3s ease-in-out"); fblock2.css("width", "55%");
+      fblock2.css("opacity", "1"); fblock2.css("left", "0");
+      flink2.css("pointer-events", "all"); fbtn2.css("background-color",
+      "var(--extra-dark-blue)"); fblock1.css("transition", "width .3s
+      ease-in-out, opacity .3s ease-in-out, left .3s ease-in-out");
+      fbtn1.css("transition", "background-color .3s ease-in-out");
+      fblock1.css("width", "30%"); fblock1.css("opacity", ".5");
+      fblock1.css("left", "-12%"); flink1.css("pointer-events", "none");
+      fbtn1.css("background-color", "var(--black)"); });
+      fblock3.click(function() { fblock3.css("transition", "width .3s
+      ease-in-out, opacity .3s ease-in-out, right .3s ease-in-out");
+      fbtn3.css("transition", "background-color .3s ease-in-out");
+      fblock3.css("width", "55%"); fblock3.css("opacity", "1");
+      fblock3.css("right", "23%"); flink3.css("pointer-events", "all");
+      fbtn3.css("background-color", "var(--extra-dark-blue)");
+      fblock2.css("transition", "width .3s ease-in-out, opacity .3s ease-in-out,
+      left .3s ease-in-out"); fbtn2.css("transition", "background-color .3s
+      ease-in-out"); fblock2.css("width", "30%"); fblock2.css("opacity", ".5");
+      fblock2.css("left", "-48%"); flink2.css("pointer-events", "none");
+      fbtn2.css("background-color", "var(--black)"); fblock1.css("transition",
+      "width .3s ease-in-out, opacity .3s ease-in-out, left .3s ease-in-out");
+      fbtn1.css("transition", "background-color .3s ease-in-out");
+      fblock1.css("width", "30%"); fblock1.css("opacity", ".5");
+      fblock1.css("left", "-40%"); flink1.css("pointer-events", "none");
+      fbtn1.css("background-color", "var(--black)"); }); fbtn3.click(function()
+      { fblock3.css("transition", "width .3s ease-in-out, opacity .3s
+      ease-in-out, right .3s ease-in-out"); fbtn3.css("transition",
+      "background-color .3s ease-in-out"); fblock3.css("width", "55%");
+      fblock3.css("opacity", "1"); fblock3.css("right", "23%");
+      flink3.css("pointer-events", "all"); fbtn3.css("background-color",
+      "var(--extra-dark-blue)"); fblock2.css("transition", "width .3s
+      ease-in-out, opacity .3s ease-in-out, left .3s ease-in-out");
+      fbtn2.css("transition", "background-color .3s ease-in-out");
+      fblock2.css("width", "30%"); fblock2.css("opacity", ".5");
+      fblock2.css("left", "-48%"); flink2.css("pointer-events", "none");
+      fbtn2.css("background-color", "var(--black)"); fblock1.css("transition",
+      "width .3s ease-in-out, opacity .3s ease-in-out, left .3s ease-in-out");
+      fbtn1.css("transition", "background-color .3s ease-in-out");
+      fblock1.css("width", "30%"); fblock1.css("opacity", ".5");
+      fblock1.css("left", "-40%"); flink1.css("pointer-events", "none");
+      fbtn1.css("background-color", "var(--black)"); }); }
+
+    </script>
+
+  </body>
+</html>
